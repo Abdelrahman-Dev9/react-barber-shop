@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 @import "./styles/auth-tokens.css";
+@import "./styles/dashboard-tokens.css";
 
 @custom-variant dark (&:is(.dark *));
 
