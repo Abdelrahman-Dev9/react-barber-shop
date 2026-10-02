@@ -1,11 +1,12 @@
-import { Button } from "@/components/ui/button";
+import { BrowserRouter } from "react-router-dom";
+import { AuthRoutes } from "@/routes/AuthRoutes";
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click here</Button>
-      <h1>welcome to dev branch</h1>
-    </div>
+
+    <BrowserRouter>
+      <AuthRoutes />
+    </BrowserRouter>
   );
 }
 
