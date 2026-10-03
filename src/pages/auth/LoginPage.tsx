@@ -1,18 +1,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineEnvelope, HiOutlineLockClosed } from "react-icons/hi2";
 import loginArt from "@/assets/Frame 406.svg";
 import { AuthLayout } from "@/components/auth/AuthLayout";
-import {
-  AuthSubmitButton,
-  AuthTextField,
-} from "@/components/auth/AuthTextField";
+import { AuthSubmitButton } from "@/components/auth/AuthSubmitButton";
+import { AuthTextField } from "@/components/auth/AuthTextField";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { loginSchema, type LoginValues } from "@/pages/auth/schemas";
 
-export function LoginPage() {
+export const LoginPage = () => {
+  const navigate = useNavigate();
   const form = useForm<LoginValues>({
     resolver: zodResolver(loginSchema),
     mode: "onSubmit",
@@ -48,7 +47,7 @@ export function LoginPage() {
         className="flex flex-col gap-4"
         noValidate
         onSubmit={form.handleSubmit(() => {
-          // UI only — wire API later
+          navigate("/review-branches");
         })}
       >
         <AuthTextField
@@ -107,4 +106,4 @@ export function LoginPage() {
       </form>
     </AuthLayout>
   );
-}
+};

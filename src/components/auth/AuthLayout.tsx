@@ -9,12 +9,12 @@ type AuthLayoutProps = {
   leftClassName?: string;
 };
 
-export function AuthLayout({
+export const AuthLayout = ({
   left,
   children,
   showLoginPrompt = true,
   leftClassName = "",
-}: AuthLayoutProps) {
+}: AuthLayoutProps) => {
   return (
     <div className="auth-layout">
       <aside className={`auth-left ${leftClassName}`.trim()} aria-hidden>
@@ -60,4 +60,4 @@ export function AuthLayout({
       </section>
     </div>
   );
-}
+};

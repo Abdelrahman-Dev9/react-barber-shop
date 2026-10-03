@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import {
   Controller,
   type Control,
@@ -8,7 +8,6 @@ import {
 import { HiOutlineEye, HiOutlineEyeSlash } from "react-icons/hi2";
 import type { IconType } from "react-icons";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import {
   InputGroup,
@@ -28,7 +27,7 @@ type AuthTextFieldProps<T extends FieldValues> = {
   autoComplete?: string;
 };
 
-export function AuthTextField<T extends FieldValues>({
+export const AuthTextField = <T extends FieldValues>({
   control,
   name,
   label,
@@ -37,7 +36,7 @@ export function AuthTextField<T extends FieldValues>({
   icon: Icon,
   autoFocus,
   autoComplete,
-}: AuthTextFieldProps<T>) {
+}: AuthTextFieldProps<T>) => {
   const [visible, setVisible] = useState(false);
   const isPassword = type === "password";
 
@@ -110,29 +109,4 @@ export function AuthTextField<T extends FieldValues>({
       )}
     />
   );
-}
-
-export function AuthSubmitButton({
-  children,
-  className,
-  disabled,
-  loading,
-}: {
-  children: ReactNode;
-  className?: string;
-  disabled?: boolean;
-  loading?: boolean;
-}) {
-  return (
-    <Button
-      type="submit"
-      disabled={disabled || loading}
-      className={cn(
-        "h-12 w-full rounded-lg bg-[var(--auth-ink)] text-base font-semibold text-white hover:bg-[var(--auth-ink)]/90 disabled:opacity-60",
-        className,
-      )}
-    >
-      {loading ? "Please wait..." : children}
-    </Button>
-  );
-}
+};

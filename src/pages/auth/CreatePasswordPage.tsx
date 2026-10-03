@@ -5,17 +5,15 @@ import { HiOutlineLockClosed } from "react-icons/hi2";
 import contentArt from "@/assets/content.svg";
 import lockIcon from "@/icons/Group 346 (1).svg";
 import { AuthLayout } from "@/components/auth/AuthLayout";
-import {
-  AuthSubmitButton,
-  AuthTextField,
-} from "@/components/auth/AuthTextField";
+import { AuthSubmitButton } from "@/components/auth/AuthSubmitButton";
+import { AuthTextField } from "@/components/auth/AuthTextField";
 import { AuthTitle } from "@/components/auth/AuthTitle";
 import {
   createPasswordSchema,
   type CreatePasswordValues,
 } from "@/pages/auth/schemas";
 
-export function CreatePasswordPage() {
+export const CreatePasswordPage = () => {
   const navigate = useNavigate();
   const form = useForm<CreatePasswordValues>({
     resolver: zodResolver(createPasswordSchema),
@@ -79,4 +77,4 @@ export function CreatePasswordPage() {
       </form>
     </AuthLayout>
   );
-}
+};

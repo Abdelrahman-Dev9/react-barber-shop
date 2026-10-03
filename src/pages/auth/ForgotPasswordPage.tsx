@@ -5,17 +5,15 @@ import { HiOutlineEnvelope } from "react-icons/hi2";
 import contentArt from "@/assets/content.svg";
 import lockResetIcon from "@/icons/Group 346.svg";
 import { AuthLayout } from "@/components/auth/AuthLayout";
-import {
-  AuthSubmitButton,
-  AuthTextField,
-} from "@/components/auth/AuthTextField";
+import { AuthSubmitButton } from "@/components/auth/AuthSubmitButton";
+import { AuthTextField } from "@/components/auth/AuthTextField";
 import { AuthTitle } from "@/components/auth/AuthTitle";
 import {
   forgotPasswordSchema,
   type ForgotPasswordValues,
 } from "@/pages/auth/schemas";
 
-export function ForgotPasswordPage() {
+export const ForgotPasswordPage = () => {
   const navigate = useNavigate();
   const form = useForm<ForgotPasswordValues>({
     resolver: zodResolver(forgotPasswordSchema),
@@ -66,4 +64,4 @@ export function ForgotPasswordPage() {
       </form>
     </AuthLayout>
   );
-}
+};

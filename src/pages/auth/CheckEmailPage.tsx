@@ -2,11 +2,11 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { HiOutlineEnvelope } from "react-icons/hi2";
 import contentArt from "@/assets/content.svg";
 import { AuthLayout } from "@/components/auth/AuthLayout";
-import { AuthSubmitButton } from "@/components/auth/AuthTextField";
+import { AuthSubmitButton } from "@/components/auth/AuthSubmitButton";
 import { AuthTitle } from "@/components/auth/AuthTitle";
+import { MailAlertIcon } from "@/components/auth/MailAlertIcon";
 import { Field, FieldError } from "@/components/ui/field";
 import {
   InputOTP,
@@ -20,18 +20,7 @@ import {
   type CheckEmailValues,
 } from "@/pages/auth/schemas";
 
-function MailAlertIcon() {
-  return (
-    <div className="relative flex size-10 items-center justify-center">
-      <HiOutlineEnvelope className="size-8 text-[var(--auth-ink)]" />
-      <span className="absolute -top-0.5 -right-0.5 flex size-4 items-center justify-center rounded-full bg-[var(--auth-ink)] text-[10px] font-bold text-white">
-        !
-      </span>
-    </div>
-  );
-}
-
-export function CheckEmailPage() {
+export const CheckEmailPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const emailFromState = (location.state as { email?: string } | null)?.email;
@@ -161,4 +150,4 @@ export function CheckEmailPage() {
       </form>
     </AuthLayout>
   );
-}
+};
