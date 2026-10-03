@@ -1,12 +1,10 @@
-import { Button } from "@/components/ui/button";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "@/routes/AppRoutes";
 
-function App() {
-  return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click here</Button>
-      <h1>welcome to uat branch</h1>
-    </div>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <AppRoutes />
+  </BrowserRouter>
+);
 
 export default App;
