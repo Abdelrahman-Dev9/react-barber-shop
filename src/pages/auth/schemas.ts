@@ -45,9 +45,9 @@ export const createPasswordSchema = z
 
 export type CreatePasswordValues = z.infer<typeof createPasswordSchema>;
 
-export function maskEmail(email: string) {
+export const maskEmail = (email: string) => {
   const [user, domain] = email.split("@");
   if (!user || !domain) return email;
   const visible = user.slice(0, Math.min(6, Math.max(1, user.length - 2)));
   return `${visible}****@${domain}`;
-}
+};

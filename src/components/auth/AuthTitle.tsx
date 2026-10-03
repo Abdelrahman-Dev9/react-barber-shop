@@ -6,7 +6,7 @@ type AuthTitleProps = {
   subtitle: ReactNode;
 };
 
-export function AuthTitle({ icon, title, subtitle }: AuthTitleProps) {
+export const AuthTitle = ({ icon, title, subtitle }: AuthTitleProps) => {
   return (
     <div className="mb-8 flex flex-col items-center text-center">
       <div className="mb-5 flex size-16 items-center justify-center rounded-full bg-[#F0F0F0]">
@@ -20,4 +20,4 @@ export function AuthTitle({ icon, title, subtitle }: AuthTitleProps) {
       </p>
     </div>
   );
-}
+};
